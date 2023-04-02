@@ -1,0 +1,61 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+bool has_duplicates(vector<int>& arr) 
+{
+    sort(arr.begin(),arr.end());
+    for (int i=1;i<arr.size();i++)
+    {
+        if (arr[i]==arr[i-1])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+
+        vector<int>arr(n);
+        for (int i=0;i<n;i++)
+        {
+            cin>>arr[i];
+        }
+        if(has_duplicates(arr))
+        {
+            cout<<"YES\n";
+        }
+        else 
+        {
+            cout<<"NO\n";
+        }
+    }
+    return 0;
+}
+
+
+
+INPUT:-
+3 
+5
+28 52 83 14 75
+10 
+75 65 1 65 2 6 86 2 75 8 
+15 
+75 35 86 57 98 23 73 1 64 8 11 90 61 19 20
+
+
+OUTPUT:-
+NO
+YES
+NO
